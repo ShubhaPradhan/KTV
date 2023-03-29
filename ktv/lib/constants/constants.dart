@@ -4,6 +4,7 @@ const domain = 'http://127.0.0.1:8000';
 
 class AppColors {
   static const Color primaryColor = Color(0xFFFF8A00);
+  static const Color backgroundColor = Color(0xFF0A0A0A);
   static const Color red = Color(0xFFED1D1D);
   static const Color white = Color(0xFFF5F5F5);
   static const Color gray40 = Color(0xFFF1F1F1);
@@ -17,4 +18,11 @@ class AppColors {
   static const Color gray700 = Color(0xFF333333);
   static const Color gray800 = Color(0xFF1A1A1A);
   static const Color gray900 = Color(0xFF0A0A0A);
+  // standard padding
+}
+
+class AppPadding {
+  static const double standardHorizontalPadding = 20;
+  static const double standardVerticalPadding = 20;
+  static const double standardPadding = 20;
 }

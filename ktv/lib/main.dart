@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import 'screens/auth_screens/login_screen.dart';
-import 'screens/auth_screens/signup_screen.dart';
+import 'screens/auth_screens/auth_screen.dart';
 import 'screens/home_screens/home_screen.dart';
 
 void main() {
@@ -20,16 +19,13 @@ class MyApp extends StatelessWidget {
       defaultTransition: Transition.leftToRight,
       theme: ThemeData(
         primarySwatch: Colors.blue,
+        fontFamily: 'RedHatDisplay',
       ),
       initialRoute: "/login",
       getPages: [
         GetPage(
           name: "/login",
-          page: () => const LoginScreen(),
-        ),
-        GetPage(
-          name: "/signup",
-          page: () => const SignupScreen(),
+          page: () => const AuthScreen(),
         ),
         GetPage(
           name: "/home",
