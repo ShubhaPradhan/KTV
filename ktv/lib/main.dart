@@ -18,6 +18,7 @@ class MyApp extends StatelessWidget {
     return GetMaterialApp(
       title: 'Ktv Live Sports',
       defaultTransition: Transition.rightToLeft,
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
         primarySwatch: Colors.blue,
         fontFamily: 'RedHatDisplay',

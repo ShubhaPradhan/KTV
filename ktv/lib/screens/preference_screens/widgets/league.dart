@@ -1,26 +1,32 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 
 import '../../../constants/constants.dart';
-import '../controller/preference_controller.dart';
 
-class League extends StatelessWidget {
+class League extends StatefulWidget {
   final int index;
-  League({
+  const League({
     super.key,
     required this.index,
   });
 
-  final PreferenceController _preferenceController =
-      Get.put(PreferenceController());
+  @override
+  State<League> createState() => _LeagueState();
+}
+
+class _LeagueState extends State<League> {
+  // final PreferenceController _preferenceController =
+  var checked = false;
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        _preferenceController.toggleChecked(
-          index,
-        );
+        // _preferenceController.toggleChecked(
+        //   index,
+        // );
+        setState(() {
+          checked = !checked;
+        });
       },
       child: Column(
         children: [
@@ -38,24 +44,22 @@ class League extends StatelessWidget {
               Positioned(
                 right: 0,
                 top: 0,
-                child: Obx(
-                  () => Visibility(
-                    visible: _preferenceController.isChecked.value,
-                    child: Center(
-                      child: Container(
-                        // take full size of parent
-                        height: 58,
-                        width: 58,
-                        decoration: const BoxDecoration(
-                          // see through box
-                          color: Color.fromARGB(178, 241, 241, 241),
-                          shape: BoxShape.circle,
-                        ),
-                        child: Image.asset(
-                          'assets/images/icon/checked.png',
-                          height: 20,
-                          width: 20,
-                        ),
+                child: Visibility(
+                  visible: checked,
+                  child: Center(
+                    child: Container(
+                      // take full size of parent
+                      height: 58,
+                      width: 58,
+                      decoration: const BoxDecoration(
+                        // see through box
+                        color: Color.fromARGB(178, 241, 241, 241),
+                        shape: BoxShape.circle,
+                      ),
+                      child: Image.asset(
+                        'assets/images/icon/checked.png',
+                        height: 20,
+                        width: 20,
                       ),
                     ),
                   ),
