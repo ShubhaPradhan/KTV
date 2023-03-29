@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 
 import 'screens/auth_screens/auth_screen.dart';
 import 'screens/home_screens/home_screen.dart';
+import 'screens/preference_screens/preference_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -16,7 +17,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetMaterialApp(
       title: 'Ktv Live Sports',
-      defaultTransition: Transition.leftToRight,
+      defaultTransition: Transition.rightToLeft,
       theme: ThemeData(
         primarySwatch: Colors.blue,
         fontFamily: 'RedHatDisplay',
@@ -30,6 +31,10 @@ class MyApp extends StatelessWidget {
         GetPage(
           name: "/home",
           page: () => const HomeScreen(),
+        ),
+        GetPage(
+          name: "/preference",
+          page: () => const PreferenceScreen(),
         ),
       ],
     );

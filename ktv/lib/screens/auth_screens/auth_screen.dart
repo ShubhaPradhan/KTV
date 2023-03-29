@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:ktv/constants/constants.dart';
 import 'package:ktv/screens/auth_screens/widgets/social_logins.dart';
 
@@ -154,7 +155,9 @@ class AuthScreen extends StatelessWidget {
                   height: 44,
                   width: double.infinity,
                   child: ElevatedButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      Get.toNamed("/preference");
+                    },
                     style: ElevatedButton.styleFrom(
                       backgroundColor: AppColors.primaryColor,
                     ),
