@@ -1,32 +1,25 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 import '../../../constants/constants.dart';
 
-class League extends StatefulWidget {
-  final int index;
-  const League({
+// ignore: must_be_immutable
+class League extends StatelessWidget {
+  League({
     super.key,
-    required this.index,
   });
 
-  @override
-  State<League> createState() => _LeagueState();
-}
+  var isChecked = false.obs;
 
-class _LeagueState extends State<League> {
-  // final PreferenceController _preferenceController =
-  var checked = false;
+  void toggleChecked() {
+    isChecked.value = !isChecked.value;
+  }
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        // _preferenceController.toggleChecked(
-        //   index,
-        // );
-        setState(() {
-          checked = !checked;
-        });
+        toggleChecked();
       },
       child: Column(
         children: [
@@ -44,22 +37,24 @@ class _LeagueState extends State<League> {
               Positioned(
                 right: 0,
                 top: 0,
-                child: Visibility(
-                  visible: checked,
-                  child: Center(
-                    child: Container(
-                      // take full size of parent
-                      height: 58,
-                      width: 58,
-                      decoration: const BoxDecoration(
-                        // see through box
-                        color: Color.fromARGB(178, 241, 241, 241),
-                        shape: BoxShape.circle,
-                      ),
-                      child: Image.asset(
-                        'assets/images/icon/checked.png',
-                        height: 20,
-                        width: 20,
+                child: Obx(
+                  () => Visibility(
+                    visible: isChecked.value,
+                    child: Center(
+                      child: Container(
+                        // take full size of parent
+                        height: 58,
+                        width: 58,
+                        decoration: const BoxDecoration(
+                          // see through box
+                          color: Color.fromARGB(178, 241, 241, 241),
+                          shape: BoxShape.circle,
+                        ),
+                        child: Image.asset(
+                          'assets/images/icon/checked.png',
+                          height: 20,
+                          width: 20,
+                        ),
                       ),
                     ),
                   ),

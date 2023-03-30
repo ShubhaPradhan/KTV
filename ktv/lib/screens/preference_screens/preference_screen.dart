@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:ktv/constants/constants.dart';
 import 'package:ktv/screens/preference_screens/widgets/accordion.dart';
 
@@ -112,7 +113,9 @@ class PreferenceScreen extends StatelessWidget {
                   child: SizedBox(
                     height: 40,
                     child: ElevatedButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        Get.toNamed("/home");
+                      },
                       style: ElevatedButton.styleFrom(
                         backgroundColor: AppColors.primaryColor,
                         shape: RoundedRectangleBorder(

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../screens/home_screens/home_screen.dart';
+
 const domain = 'http://127.0.0.1:8000';
 
 class AppColors {
@@ -26,3 +28,7 @@ class AppPadding {
   static const double standardVerticalPadding = 20;
   static const double standardPadding = 20;
 }
+
+var currentTab = 0;
+var currentTitle = 'Home';
+Widget currentScreen = const HomeScreen();

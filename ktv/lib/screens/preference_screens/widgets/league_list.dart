@@ -24,7 +24,7 @@ class LeagueList extends StatelessWidget {
             crossAxisCount: 4,
             mainAxisSpacing: 24,
           ),
-          itemBuilder: (context, index) => League(index: index),
+          itemBuilder: (context, index) => League(),
         ),
       ),
     );

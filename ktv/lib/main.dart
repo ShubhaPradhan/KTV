@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:ktv/screens/discover_screens/discover_screen.dart';
+import 'package:ktv/screens/more_screens/more_screen.dart';
 
 import 'screens/auth_screens/auth_screen.dart';
+import 'screens/events_screens/event_screen.dart';
 import 'screens/home_screens/home_screen.dart';
 import 'screens/preference_screens/preference_screen.dart';
 
@@ -30,13 +33,25 @@ class MyApp extends StatelessWidget {
           page: () => const AuthScreen(),
         ),
         GetPage(
+          name: "/preference",
+          page: () => const PreferenceScreen(),
+        ),
+        GetPage(
           name: "/home",
           page: () => const HomeScreen(),
         ),
         GetPage(
-          name: "/preference",
-          page: () => const PreferenceScreen(),
+          name: "/discover",
+          page: () => const DiscoverScreen(),
         ),
+        GetPage(
+          name: "/events",
+          page: () => const EventsScreen(),
+        ),
+        GetPage(
+          name: "/more",
+          page: () => const MoreScreen(),
+        )
       ],
     );
   }
