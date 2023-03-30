@@ -24,7 +24,7 @@ class AppColors {
 }
 
 class AppPadding {
-  static const double standardHorizontalPadding = 20;
+  static const double standardHorizontalPadding = 10;
   static const double standardVerticalPadding = 20;
   static const double standardPadding = 20;
 }

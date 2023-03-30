@@ -13,6 +13,7 @@ class _CustomAppBarState extends State<CustomAppBar> {
   @override
   Widget build(BuildContext context) {
     return AppBar(
+      titleSpacing: AppPadding.standardHorizontalPadding,
       centerTitle: false,
       leadingWidth: 0,
       automaticallyImplyLeading: false,
@@ -38,27 +39,29 @@ class _CustomAppBarState extends State<CustomAppBar> {
               : Text(
                   currentTitle,
                   style: const TextStyle(
-                    fontSize: 17,
+                    fontSize: 20,
                     fontWeight: FontWeight.w500,
-                    color: Colors.black87,
+                    color: Colors.white,
                   ),
                 ),
-          Row(
-            children: [
-              Image.asset(
-                "assets/images/icon/search-home.png",
-              ),
-              const SizedBox(width: 20),
-              GestureDetector(
-                onTap: () {
-                  Navigator.of(context).pushNamed('/user-notification');
-                },
-                child: Image.asset(
-                  "assets/images/user.png",
-                ),
-              ),
-            ],
-          ),
+          currentTitle == 'Home'
+              ? Row(
+                  children: [
+                    Image.asset(
+                      "assets/images/icon/search-home.png",
+                    ),
+                    const SizedBox(width: 20),
+                    GestureDetector(
+                      onTap: () {
+                        Navigator.of(context).pushNamed('/user-notification');
+                      },
+                      child: Image.asset(
+                        "assets/images/user.png",
+                      ),
+                    ),
+                  ],
+                )
+              : Container()
         ],
       ),
     );

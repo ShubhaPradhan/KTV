@@ -90,7 +90,12 @@ flutter:
     - assets/images/icon/notification.png
     - assets/images/icon/events.png
     - assets/images/icon/menu.png
+    - assets/images/icon/volume.png
+    - assets/images/icon/full-screen.png
     - assets/images/user.png
+    - assets/images/live1.png
+    - assets/images/live2.png
+    
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

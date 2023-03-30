@@ -20,7 +20,7 @@ class _BottomBarState extends State<BottomBar> {
     'Home',
     'Discover',
     'Events',
-    'More',
+    'Menu',
   ];
 
   final List iconName = [
@@ -49,12 +49,12 @@ class _BottomBarState extends State<BottomBar> {
           bottomCategory(
             2,
             const EventsScreen(),
-            'Events',
+            'Saved Events',
           ),
           bottomCategory(
             3,
             const MoreScreen(),
-            'More',
+            'Settings',
           ),
         ],
       ),
