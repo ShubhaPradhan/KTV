@@ -83,6 +83,7 @@ class PreferenceScreen extends StatelessWidget {
                       contentPadding: EdgeInsets.only(
                         left: 16,
                         right: 16,
+                        top: 6,
                       ),
                       hintText: 'Search...',
                       hintStyle: TextStyle(

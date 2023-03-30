@@ -2,7 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:ktv/constants/constants.dart';
 
 class SocialLogins extends StatelessWidget {
-  const SocialLogins({super.key});
+  final String isLogin;
+  const SocialLogins({
+    super.key,
+    required this.isLogin,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -24,15 +28,15 @@ class SocialLogins extends StatelessWidget {
               ),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
-                children: const [
+                children: [
                   // icon
-                  Image(
+                  const Image(
                     image: AssetImage('assets/images/icon/facebook.png'),
                   ),
-                  SizedBox(width: 10),
+                  const SizedBox(width: 10),
                   Text(
-                    'Login with Facebook',
-                    style: TextStyle(
+                    '$isLogin with Facebook',
+                    style: const TextStyle(
                       color: AppColors.primaryColor,
                     ),
                   ),
@@ -55,14 +59,14 @@ class SocialLogins extends StatelessWidget {
               ),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
-                children: const [
-                  Image(
+                children: [
+                  const Image(
                     image: AssetImage('assets/images/icon/google.png'),
                   ),
-                  SizedBox(width: 10),
+                  const SizedBox(width: 10),
                   Text(
-                    'Login with Google',
-                    style: TextStyle(
+                    '$isLogin with Google',
+                    style: const TextStyle(
                       color: AppColors.primaryColor,
                     ),
                   ),
@@ -85,14 +89,14 @@ class SocialLogins extends StatelessWidget {
               ),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
-                children: const [
-                  Image(
+                children: [
+                  const Image(
                     image: AssetImage('assets/images/icon/apple.png'),
                   ),
-                  SizedBox(width: 10),
+                  const SizedBox(width: 10),
                   Text(
-                    'Login with Apple',
-                    style: TextStyle(
+                    '$isLogin with Apple',
+                    style: const TextStyle(
                       color: AppColors.primaryColor,
                     ),
                   ),

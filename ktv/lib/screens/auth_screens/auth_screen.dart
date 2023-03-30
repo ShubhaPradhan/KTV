@@ -4,7 +4,9 @@ import 'package:ktv/constants/constants.dart';
 import 'package:ktv/screens/auth_screens/widgets/social_logins.dart';
 
 class AuthScreen extends StatelessWidget {
-  const AuthScreen({super.key});
+  AuthScreen({super.key});
+
+  final _isLogin = true.obs;
 
   @override
   Widget build(BuildContext context) {
@@ -30,12 +32,14 @@ class AuthScreen extends StatelessWidget {
                     ),
                   ),
                 ),
-                const Text(
-                  'Login',
-                  style: TextStyle(
-                    fontSize: 20,
-                    fontWeight: FontWeight.bold,
-                    color: AppColors.gray40,
+                Obx(
+                  () => Text(
+                    _isLogin.value ? 'Login' : 'Sign Up',
+                    style: const TextStyle(
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
+                      color: AppColors.gray40,
+                    ),
                   ),
                 ),
                 const SizedBox(height: 16),
@@ -135,21 +139,27 @@ class AuthScreen extends StatelessWidget {
                     ],
                   ),
                 ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.end,
-                  children: [
-                    TextButton(
-                      onPressed: () {},
-                      child: const Text(
-                        'Forgot password?',
-                        textAlign: TextAlign.right,
-                        style: TextStyle(
-                          fontSize: 14,
-                          color: AppColors.primaryColor,
+                Obx(
+                  () => _isLogin.value
+                      ? Row(
+                          mainAxisAlignment: MainAxisAlignment.end,
+                          children: [
+                            TextButton(
+                              onPressed: () {},
+                              child: const Text(
+                                'Forgot password?',
+                                textAlign: TextAlign.right,
+                                style: TextStyle(
+                                  fontSize: 14,
+                                  color: AppColors.primaryColor,
+                                ),
+                              ),
+                            ),
+                          ],
+                        )
+                      : const SizedBox(
+                          height: 16,
                         ),
-                      ),
-                    ),
-                  ],
                 ),
                 SizedBox(
                   height: 44,
@@ -161,37 +171,49 @@ class AuthScreen extends StatelessWidget {
                     style: ElevatedButton.styleFrom(
                       backgroundColor: AppColors.primaryColor,
                     ),
-                    child: const Text(
-                      'Login',
-                      style: TextStyle(color: Colors.white),
+                    child: Obx(
+                      () => Text(
+                        _isLogin.value ? "Login" : "Sign Up",
+                        style: const TextStyle(color: Colors.white),
+                      ),
                     ),
                   ),
                 ),
                 Center(
                   child: TextButton(
-                    onPressed: () {},
-                    child: RichText(
-                      text: const TextSpan(
-                        text: 'Don\'t have an account? ',
-                        style: TextStyle(
-                          fontSize: 14,
-                          color: AppColors.gray40,
-                        ),
-                        children: [
-                          TextSpan(
-                            text: 'Sign up',
-                            style: TextStyle(
-                              fontSize: 14,
-                              color: AppColors.primaryColor,
-                            ),
+                    onPressed: () {
+                      _isLogin.value = !_isLogin.value;
+                    },
+                    child: Obx(
+                      () => RichText(
+                        text: TextSpan(
+                          text: _isLogin.value
+                              ? 'Don\'t have an account?  '
+                              : 'Already have an account?  ',
+                          style: const TextStyle(
+                            fontSize: 14,
+                            color: AppColors.gray40,
                           ),
-                        ],
+                          children: [
+                            TextSpan(
+                              text: _isLogin.value ? 'Sign up' : 'Login',
+                              style: const TextStyle(
+                                fontSize: 14,
+                                color: AppColors.primaryColor,
+                              ),
+                            ),
+                          ],
+                        ),
                       ),
                     ),
                   ),
                 ),
                 const SizedBox(height: 24),
-                const SocialLogins(),
+                Obx(
+                  () => SocialLogins(
+                    isLogin: _isLogin.value ? "Login" : "Signup",
+                  ),
+                ),
               ],
             ),
           ),

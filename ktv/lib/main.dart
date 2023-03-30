@@ -35,7 +35,7 @@ class MyApp extends StatelessWidget {
       getPages: [
         GetPage(
           name: "/login",
-          page: () => const AuthScreen(),
+          page: () => AuthScreen(),
         ),
         GetPage(
           name: "/preference",
