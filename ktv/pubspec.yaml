@@ -37,6 +37,7 @@ dependencies:
   cupertino_icons: ^1.0.2
   get: ^4.6.5
   intl: ^0.18.0
+  image_picker: ^0.8.7+1
 
 dev_dependencies:
   flutter_test:
@@ -83,6 +84,7 @@ flutter:
     - assets/images/icon/checked.png
     - assets/images/icon/up-arrow.png
     - assets/images/icon/down-arrow.png
+    - assets/images/icon/back-arrow.png
     - assets/images/icon/search.png
     - assets/images/icon/search-home.png
     - assets/images/icon/home.png
@@ -92,6 +94,20 @@ flutter:
     - assets/images/icon/menu.png
     - assets/images/icon/volume.png
     - assets/images/icon/full-screen.png
+    - assets/images/icon/plus.png
+    - assets/images/icon/profile.png
+    - assets/images/icon/subscription.png
+    - assets/images/icon/security.png
+    - assets/images/icon/faq.png
+    - assets/images/icon/contact.png
+    - assets/images/icon/about.png
+    - assets/images/icon/rate.png
+    - assets/images/icon/share.png
+    - assets/images/icon/logout.png
+    - assets/images/icon/phone.png
+    - assets/images/icon/mail.png
+    - assets/images/icon/viber.png
+    - assets/images/icon/edit.png
     - assets/images/user.png
     - assets/images/live1.png
     - assets/images/live2.png

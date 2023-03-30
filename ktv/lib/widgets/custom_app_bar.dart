@@ -57,6 +57,7 @@ class _CustomAppBarState extends State<CustomAppBar> {
                       },
                       child: Image.asset(
                         "assets/images/user.png",
+                        height: 40,
                       ),
                     ),
                   ],

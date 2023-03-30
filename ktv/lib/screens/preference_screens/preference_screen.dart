@@ -2,9 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:ktv/constants/constants.dart';
 import 'package:ktv/screens/preference_screens/widgets/accordion.dart';
+import 'package:ktv/screens/preference_screens/widgets/search_list.dart';
 
 class PreferenceScreen extends StatelessWidget {
-  const PreferenceScreen({super.key});
+  PreferenceScreen({super.key});
+
+  final _searchList = false.obs;
 
   @override
   Widget build(BuildContext context) {
@@ -55,6 +58,14 @@ class PreferenceScreen extends StatelessWidget {
                 SizedBox(
                   height: 40,
                   child: TextFormField(
+                    // onChanged call a widget
+                    onChanged: (value) {
+                      if (value.isNotEmpty) {
+                        _searchList.value = true;
+                      } else {
+                        _searchList.value = false;
+                      }
+                    },
                     keyboardType: TextInputType.text,
                     style: const TextStyle(
                       fontSize: 14,
@@ -72,8 +83,6 @@ class PreferenceScreen extends StatelessWidget {
                       contentPadding: EdgeInsets.only(
                         left: 16,
                         right: 16,
-                        top: 12,
-                        bottom: 8,
                       ),
                       hintText: 'Search...',
                       hintStyle: TextStyle(
@@ -91,21 +100,25 @@ class PreferenceScreen extends StatelessWidget {
                 ),
                 const SizedBox(height: 30),
                 // ListView buuilder for accordion
-                ListView.builder(
-                  shrinkWrap: true,
-                  physics: const NeverScrollableScrollPhysics(),
-                  itemCount: 3,
-                  itemBuilder: (context, index) {
-                    return Padding(
-                      padding: const EdgeInsets.symmetric(
-                        vertical: 8,
-                      ),
-                      child: Accordion(
-                        title: 'Title $index',
-                        content: 'Content $index',
-                      ),
-                    );
-                  },
+                Obx(
+                  () => _searchList.value
+                      ? const SearchList()
+                      : ListView.builder(
+                          shrinkWrap: true,
+                          physics: const NeverScrollableScrollPhysics(),
+                          itemCount: 3,
+                          itemBuilder: (context, index) {
+                            return Padding(
+                              padding: const EdgeInsets.symmetric(
+                                vertical: 8,
+                              ),
+                              child: Accordion(
+                                title: 'Title $index',
+                                content: 'Content $index',
+                              ),
+                            );
+                          },
+                        ),
                 ),
                 const SizedBox(height: 30),
                 // elevated button

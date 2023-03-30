@@ -2,10 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:ktv/screens/discover_screens/discover_screen.dart';
 import 'package:ktv/screens/more_screens/more_screen.dart';
+import 'package:ktv/screens/more_screens/widgets/edit_profile.dart';
+import 'package:ktv/screens/more_screens/widgets/profile.dart';
 
 import 'screens/auth_screens/auth_screen.dart';
 import 'screens/events_screens/event_screen.dart';
 import 'screens/home_screens/home_screen.dart';
+import 'screens/more_screens/widgets/about.dart';
+import 'screens/more_screens/widgets/faq.dart';
+import 'screens/more_screens/widgets/security.dart';
 import 'screens/preference_screens/preference_screen.dart';
 
 void main() {
@@ -34,7 +39,7 @@ class MyApp extends StatelessWidget {
         ),
         GetPage(
           name: "/preference",
-          page: () => const PreferenceScreen(),
+          page: () => PreferenceScreen(),
         ),
         GetPage(
           name: "/home",
@@ -51,7 +56,27 @@ class MyApp extends StatelessWidget {
         GetPage(
           name: "/more",
           page: () => const MoreScreen(),
-        )
+        ),
+        GetPage(
+          name: "/profile",
+          page: () => const Profile(),
+        ),
+        GetPage(
+          name: "/edit-profile",
+          page: () => const EditProfiel(),
+        ),
+        GetPage(
+          name: "/about",
+          page: () => const About(),
+        ),
+        GetPage(
+          name: "/security",
+          page: () => Security(),
+        ),
+        GetPage(
+          name: "/faq",
+          page: () => const Faq(),
+        ),
       ],
     );
   }
